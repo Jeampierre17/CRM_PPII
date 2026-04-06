@@ -13,60 +13,188 @@
   --white:#fff;--muted:#5a6374;--border:#E4E7EC;--light:#F7F8FA;
   --f:'Poppins',sans-serif;
 }
-html,body{height:100%;font-family:var(--f);background:#0a0f1e;overflow:hidden}
+html,body{height:100%;font-family:var(--f);background:#080d1a;overflow:hidden}
 
 /* ── DECK ── */
 .deck{width:100vw;height:100vh;position:relative;overflow:hidden}
-.slide{position:absolute;inset:0;display:none;flex-direction:column;animation:fi .35s ease}
-.slide.active{display:flex}
-@keyframes fi{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.slide{position:absolute;inset:0;display:none;flex-direction:column}
+.slide.active{display:flex;animation:slideIn .55s cubic-bezier(.16,1,.3,1) forwards}
+.slide.exit{animation:slideOut .35s cubic-bezier(.4,0,1,1) forwards}
 
-/* ── NAV ── */
-.nav{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:11px;z-index:9999;background:rgba(255,255,255,.96);border:1px solid var(--border);border-radius:40px;padding:8px 18px;box-shadow:0 8px 32px rgba(0,0,0,.14)}
-.nav button{background:none;border:none;cursor:pointer;font-size:16px;color:var(--muted);font-family:var(--f);padding:2px 10px;border-radius:20px;transition:all .2s}
-.nav button:hover{background:var(--light);color:var(--blue)}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--border);cursor:pointer;transition:all .2s}
-.dot.on{background:var(--blue);transform:scale(1.4)}
-.snum{font-size:11px;color:var(--muted);min-width:36px;text-align:center;font-weight:500}
-.nav-hint{position:fixed;bottom:8px;left:50%;transform:translateX(-50%);font-size:10px;color:rgba(255,255,255,.25);font-family:var(--f);letter-spacing:.04em;pointer-events:none}
+@keyframes slideIn{
+  from{opacity:0;transform:translateY(24px) scale(.985)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes slideOut{
+  from{opacity:1;transform:translateY(0) scale(1)}
+  to{opacity:0;transform:translateY(-16px) scale(1.01)}
+}
+
+/* Staggered children animation */
+.slide.active .sh{animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .05s both}
+.slide.active .sb > *{animation:fadeUp .5s cubic-bezier(.16,1,.3,1) both}
+.slide.active .sb > *:nth-child(1){animation-delay:.12s}
+.slide.active .sb > *:nth-child(2){animation-delay:.2s}
+.slide.active .sb > *:nth-child(3){animation-delay:.28s}
+.slide.active .sb > *:nth-child(4){animation-delay:.34s}
+
+/* Grid children stagger */
+.slide.active .pg .pc:nth-child(1){animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .12s both}
+.slide.active .pg .pc:nth-child(2){animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .22s both}
+.slide.active .pg .pc:nth-child(3){animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .32s both}
+.slide.active .mg .mod:nth-child(1){animation:fadeUp .45s cubic-bezier(.16,1,.3,1) .1s both}
+.slide.active .mg .mod:nth-child(2){animation:fadeUp .45s cubic-bezier(.16,1,.3,1) .17s both}
+.slide.active .mg .mod:nth-child(3){animation:fadeUp .45s cubic-bezier(.16,1,.3,1) .24s both}
+.slide.active .mg .mod:nth-child(4){animation:fadeUp .45s cubic-bezier(.16,1,.3,1) .31s both}
+.slide.active .mg .mod:nth-child(5){animation:fadeUp .45s cubic-bezier(.16,1,.3,1) .38s both}
+.slide.active .mg .mod:nth-child(6){animation:fadeUp .45s cubic-bezier(.16,1,.3,1) .45s both}
+.slide.active .tr .tc:nth-child(1){animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .12s both}
+.slide.active .tr .tc:nth-child(2){animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .22s both}
+.slide.active .tr .tc:nth-child(3){animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .32s both}
+.slide.active .cg .ccard:nth-child(1){animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .14s both}
+.slide.active .cg .ccard:nth-child(2){animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .24s both}
+.slide.active .cg .ccard:nth-child(3){animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .34s both}
+.slide.active .dg .db2:nth-child(1){animation:fadeLeft .5s cubic-bezier(.16,1,.3,1) .1s both}
+.slide.active .dg .db2:nth-child(2){animation:fadeRight .5s cubic-bezier(.16,1,.3,1) .2s both}
+
+/* Cover specific */
+.slide.active .s1l > *:nth-child(1){animation:fadeUp .6s cubic-bezier(.16,1,.3,1) .05s both}
+.slide.active .s1l > *:nth-child(2){animation:fadeUp .6s cubic-bezier(.16,1,.3,1) .14s both}
+.slide.active .s1l > *:nth-child(3){animation:fadeUp .6s cubic-bezier(.16,1,.3,1) .22s both}
+.slide.active .s1l > *:nth-child(4){animation:fadeUp .6s cubic-bezier(.16,1,.3,1) .30s both}
+.slide.active .s1l > *:nth-child(5){animation:fadeUp .6s cubic-bezier(.16,1,.3,1) .38s both}
+.slide.active .s1r{animation:fadeLeft .7s cubic-bezier(.16,1,.3,1) .08s both}
+
+/* Thank you slide */
+.slide.active .s9-content > *:nth-child(1){animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .06s both}
+.slide.active .s9-content > *:nth-child(2){animation:fadeUp .6s cubic-bezier(.16,1,.3,1) .14s both}
+.slide.active .s9-content > *:nth-child(3){animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .22s both}
+.slide.active .s9-content > *:nth-child(4){animation:scaleIn .5s cubic-bezier(.16,1,.3,1) .28s both}
+.slide.active .s9-content > *:nth-child(5){animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .32s both}
+.slide.active .members-grid .member:nth-child(1){animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .36s both}
+.slide.active .members-grid .member:nth-child(2){animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .43s both}
+.slide.active .members-grid .member:nth-child(3){animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .50s both}
+.slide.active .members-grid .member:nth-child(4){animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .57s both}
+.slide.active .members-grid .member:nth-child(5){animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .64s both}
+.slide.active .s9-course{animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .6s both}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeLeft{
+  from{opacity:0;transform:translateX(-20px)}
+  to{opacity:1;transform:translateX(0)}
+}
+@keyframes fadeRight{
+  from{opacity:0;transform:translateX(20px)}
+  to{opacity:1;transform:translateX(0)}
+}
+@keyframes scaleIn{
+  from{opacity:0;transform:scaleX(0)}
+  to{opacity:1;transform:scaleX(1)}
+}
+
+/* ══ NAV — ultra-thin floating bar ══ */
+.nav{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:0;z-index:9999;
+  background:rgba(8,13,26,.82);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:100px;
+  padding:5px 6px;
+  box-shadow:0 2px 32px rgba(0,0,0,.4),0 0 0 1px rgba(255,255,255,.04);
+}
+.nav-btn{
+  background:none;border:none;cursor:pointer;
+  width:30px;height:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.4);transition:all .2s;
+  font-family:var(--f);font-size:13px;
+}
+.nav-btn:hover{background:rgba(255,255,255,.08);color:#fff}
+.nav-dots{display:flex;align-items:center;gap:5px;padding:0 10px}
+.dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.2);cursor:pointer;transition:all .3s}
+.dot.on{width:18px;border-radius:4px;background:var(--sky)}
+.dot:hover:not(.on){background:rgba(255,255,255,.5)}
+.nav-divider{width:1px;height:16px;background:rgba(255,255,255,.08);margin:0 2px}
+.nav-info{display:flex;align-items:center;gap:8px;padding:0 6px 0 4px}
+.snum{font-size:10px;color:rgba(255,255,255,.3);font-weight:500;letter-spacing:.04em;white-space:nowrap}
+
+/* Progress bar at top */
+.progress-line{
+  position:fixed;top:0;left:0;height:2px;z-index:9998;
+  background:linear-gradient(90deg,var(--sky),var(--teal));
+  transition:width .4s cubic-bezier(.16,1,.3,1);
+  box-shadow:0 0 8px rgba(27,150,255,.6);
+}
+
+/* Slide counter badge — top right */
+.slide-badge{
+  position:fixed;top:16px;right:20px;z-index:9998;
+  display:flex;align-items:center;gap:6px;
+  background:rgba(8,13,26,.7);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:20px;padding:5px 12px;
+}
+.slide-badge .sb-num{font-size:11px;font-weight:600;color:#fff;letter-spacing:.02em}
+.slide-badge .sb-total{font-size:10px;color:rgba(255,255,255,.3);font-weight:400}
+.slide-badge .sb-title{font-size:10px;color:rgba(255,255,255,.45);font-weight:400;max-width:140px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.slide-badge .sb-sep{width:1px;height:12px;background:rgba(255,255,255,.1)}
+
+/* Key hint */
+.nav-hint{position:fixed;bottom:7px;left:50%;transform:translateX(-50%);font-size:9px;color:rgba(255,255,255,.15);font-family:var(--f);letter-spacing:.06em;pointer-events:none;white-space:nowrap}
 
 /* ════════════════════════════════
    SLIDE 1 — COVER
 ════════════════════════════════ */
 .s1{background:var(--navy);flex-direction:row}
-.s1l{flex:1;padding:clamp(40px,6vw,72px) clamp(40px,6vw,72px);display:flex;flex-direction:column;justify-content:center;gap:18px}
+.s1l{flex:1;padding:clamp(36px,5vw,60px) clamp(36px,5vw,64px);display:flex;flex-direction:column;justify-content:center;gap:14px}
 .s1r{width:38%;position:relative;overflow:hidden;flex-shrink:0}
 .s1r svg.bg{position:absolute;inset:0;width:100%;height:100%}
-.eyebrow-row{display:flex;align-items:center;gap:8px}
-.e-dot{width:6px;height:6px;border-radius:50%;background:var(--sky)}
-.e-lbl{font-size:clamp(9px,1vw,11px);font-weight:600;color:#5A9FD4;letter-spacing:.14em;text-transform:uppercase}
-.s1 h1{font-size:clamp(60px,8vw,96px);font-weight:800;line-height:.9;letter-spacing:-4px;color:#fff}
+.eyebrow-row{display:flex;align-items:center;gap:7px}
+.e-dot{width:5px;height:5px;border-radius:50%;background:var(--sky)}
+.e-lbl{font-size:clamp(8px,.9vw,10px);font-weight:600;color:#5A9FD4;letter-spacing:.16em;text-transform:uppercase}
+.s1 h1{font-size:clamp(56px,7.5vw,90px);font-weight:800;line-height:.9;letter-spacing:-4px;color:#fff}
 .s1 h1 em{font-style:normal;color:var(--sky)}
-.s1-desc{font-size:clamp(12px,1.4vw,15px);color:#8AADCC;font-weight:300;line-height:1.7;max-width:420px}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
-.chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);color:#9FC4DF;font-size:clamp(9px,1vw,11px);font-weight:500;padding:5px 14px;border-radius:20px}
-.s1-foot{font-size:clamp(9px,1vw,10.5px);color:#3D6B8F;margin-top:4px}
+.s1-desc{font-size:clamp(11px,1.3vw,14px);color:#8AADCC;font-weight:300;line-height:1.75;max-width:400px}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:2px}
+.chip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#9FC4DF;font-size:clamp(8.5px,.9vw,10.5px);font-weight:500;padding:4px 12px;border-radius:20px}
+.s1-foot{font-size:clamp(8.5px,.9vw,10px);color:#3D6B8F;margin-top:2px;font-weight:300;line-height:1.5}
 
 /* ════════════════════════════════
    COMMON CONTENT SLIDES
 ════════════════════════════════ */
-.content-slide{background:var(--light)}
-.sh{padding:clamp(22px,3.5vw,36px) clamp(40px,6vw,72px) 0}
-.ey{font-size:clamp(9px,1vw,10.5px);font-weight:600;color:var(--blue);letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px}
-.st{font-size:clamp(20px,3vw,30px);font-weight:800;color:var(--navy);letter-spacing:-.5px;line-height:1.1}
-.sb{flex:1;padding:clamp(12px,2vw,18px) clamp(40px,6vw,72px) 80px;overflow:hidden}
+.content-slide{background:#F8FAFB}
+.sh{
+  padding:clamp(20px,3vw,32px) clamp(36px,5vw,64px) clamp(12px,1.5vw,16px);
+  display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1px solid rgba(3,45,96,.06);
+}
+.sh-left{display:flex;flex-direction:column;gap:3px}
+.ey{
+  font-size:clamp(8px,.9vw,10px);font-weight:600;color:var(--sky);
+  letter-spacing:.18em;text-transform:uppercase;
+  display:flex;align-items:center;gap:6px;
+}
+.ey::before{content:'';width:16px;height:1.5px;background:var(--sky);border-radius:2px;display:inline-block}
+.st{font-size:clamp(18px,2.6vw,26px);font-weight:700;color:var(--navy);letter-spacing:-.4px;line-height:1.1}
+.sh-num{font-size:clamp(48px,6vw,80px);font-weight:800;color:rgba(3,45,96,.04);letter-spacing:-4px;line-height:1;user-select:none}
+.sb{flex:1;padding:clamp(10px,1.8vw,16px) clamp(36px,5vw,64px) 68px;overflow:hidden}
 
 /* ── S2 PAIN CARDS ── */
-.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
-.pc{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 18px;position:relative;overflow:hidden}
-.pc::after{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--red);border-radius:14px 14px 0 0}
-.pc-icon{width:38px;height:38px;border-radius:11px;background:#FEF0F0;display:flex;align-items:center;justify-content:center;margin-bottom:11px}
-.pc h3{font-size:clamp(12px,1.3vw,14px);font-weight:700;color:var(--navy);margin-bottom:5px}
-.pc p{font-size:clamp(10px,1.1vw,12px);color:var(--muted);line-height:1.6}
-.def-ban{background:var(--navy);border-radius:14px;padding:18px 24px;margin-top:16px}
-.def-ban .dl{font-size:9.5px;font-weight:600;color:#5A9FD4;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
-.def-ban p{font-size:clamp(11px,1.2vw,13px);color:#B0CEEA;line-height:1.7;font-weight:300}
-.def-ban strong{color:#fff;font-weight:600}
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.pc{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px 16px;position:relative;overflow:hidden}
+.pc::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);border-radius:12px 12px 0 0}
+.pc-icon{width:34px;height:34px;border-radius:10px;background:#FEF0F0;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.pc h3{font-size:clamp(11px,1.2vw,13px);font-weight:600;color:var(--navy);margin-bottom:4px}
+.pc p{font-size:clamp(9.5px,1vw,11.5px);color:var(--muted);line-height:1.6;font-weight:400}
+.def-ban{background:var(--navy);border-radius:12px;padding:16px 22px;margin-top:14px}
+.def-ban .dl{font-size:9px;font-weight:600;color:#5A9FD4;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.def-ban p{font-size:clamp(10.5px,1.1vw,12.5px);color:#B0CEEA;line-height:1.7;font-weight:300}
+.def-ban strong{color:#fff;font-weight:500}
 
 /* ── S3 DEFINICION ── */
 .dg{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
@@ -121,17 +249,16 @@ html,body{height:100%;font-family:var(--f);background:#0a0f1e;overflow:hidden}
 /* ════════════════════════════════
    SLIDE 7 — DEMO CRM EMBEBIDA
 ════════════════════════════════ */
-.s-demo{background:var(--light)}
-.demo-slide-wrap{flex:1;padding:0 clamp(24px,4vw,48px) 72px;display:flex;flex-direction:column;overflow:hidden}
-.demo-topbar{display:flex;align-items:center;gap:10px;margin:12px 0 10px}
-.demo-topbar .ey{margin-bottom:0}
-.crm-embed{flex:1;border-radius:14px;overflow:hidden;border:1px solid var(--border);box-shadow:0 4px 24px rgba(0,0,0,.08);min-height:0}
+.s-demo{background:#F8FAFB}
+.demo-slide-wrap{flex:1;padding:0 clamp(24px,4vw,48px) 68px;display:flex;flex-direction:column;overflow:hidden}
+.crm-embed{flex:1;border-radius:12px;overflow:hidden;border:1px solid rgba(3,45,96,.1);box-shadow:0 2px 20px rgba(0,0,0,.06);min-height:0}
 
 /* ════════════════════════════════
    SLIDE 8 — CIERRE
 ════════════════════════════════ */
 .s8{background:var(--navy)}
-.s8 .ey{color:#5A9FD4}
+.s8 .ey{color:rgba(27,150,255,.7)}
+.s8 .ey::before{background:rgba(27,150,255,.5)}
 .s8 .st{color:#fff}
 .cg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
 .ccard{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px 16px}
@@ -151,11 +278,11 @@ html,body{height:100%;font-family:var(--f);background:#0a0f1e;overflow:hidden}
 .s9-sub{font-size:clamp(12px,1.3vw,14px);color:#7AACCF;font-weight:300;max-width:500px;line-height:1.65;margin-bottom:24px}
 .divider{width:48px;height:3px;background:var(--sky);border-radius:3px;margin-bottom:24px}
 .team-label{font-size:9.5px;font-weight:600;color:#5A9FD4;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
-.members-grid{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;max-width:720px}
-.member{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:13px 20px;display:flex;align-items:center;gap:11px;min-width:190px}
-.avatar{width:36px;height:36px;border-radius:50%;background:rgba(27,150,255,.25);border:2px solid rgba(27,150,255,.4);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--sky);flex-shrink:0}
-.mname{font-size:12.5px;font-weight:600;color:#fff}
-.mrole{font-size:10px;color:#7AACCF;margin-top:2px}
+.members-grid{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;max-width:640px}
+.member{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);border-radius:14px;padding:16px 24px;display:flex;align-items:center;gap:12px;min-width:180px;transition:background .2s,border-color .2s}
+.member:hover{background:rgba(255,255,255,.11);border-color:rgba(27,150,255,.3)}
+.avatar{width:38px;height:38px;border-radius:50%;background:rgba(27,150,255,.25);border:2px solid rgba(27,150,255,.4);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--sky);flex-shrink:0;letter-spacing:.02em}
+.mname{font-size:13.5px;font-weight:600;color:#fff;letter-spacing:-.1px}
 .s9-course{font-size:10px;color:#3D6B8F;margin-top:18px;font-weight:400}
 
 /* ── BADGE ── */
@@ -174,7 +301,7 @@ html,body{height:100%;font-family:var(--f);background:#0a0f1e;overflow:hidden}
   <!-- ══════════ S1: COVER ══════════ -->
   <div class="slide s1 active" data-i="0">
     <div class="s1l">
-      <div class="eyebrow-row"><div class="e-dot"></div><span class="e-lbl">Investigación Académica · 2025</span></div>
+      <div class="eyebrow-row"><div class="e-dot"></div><span class="e-lbl">Investigación Académica</span></div>
       <h1>C<em>R</em>M</h1>
       <p class="s1-desc">Customer Relationship Management — estrategia, tecnología y decisiones basadas en datos del cliente.</p>
       <div class="chips">
@@ -203,7 +330,7 @@ html,body{height:100%;font-family:var(--f);background:#0a0f1e;overflow:hidden}
 
   <!-- ══════════ S2: ¿POR QUÉ? ══════════ -->
   <div class="slide content-slide" data-i="1">
-    <div class="sh"><div class="ey">01 — Introducción</div><div class="st">¿Por qué CRM?</div></div>
+    <div class="sh"><div class="sh-left"><div class="ey">01 — Introducción</div><div class="st">¿Por qué CRM?</div></div><div class="sh-num">01</div></div>
     <div class="sb">
       <div class="pg">
         <div class="pc">
@@ -231,7 +358,7 @@ html,body{height:100%;font-family:var(--f);background:#0a0f1e;overflow:hidden}
 
   <!-- ══════════ S3: DEFINICIÓN ══════════ -->
   <div class="slide content-slide" data-i="2">
-    <div class="sh"><div class="ey">02 — Definición</div><div class="st">Conceptos clave</div></div>
+    <div class="sh"><div class="sh-left"><div class="ey">02 — Definición</div><div class="st">Conceptos clave</div></div><div class="sh-num">02</div></div>
     <div class="sb">
       <div class="dg">
         <div class="db2">
@@ -253,7 +380,7 @@ html,body{height:100%;font-family:var(--f);background:#0a0f1e;overflow:hidden}
 
   <!-- ══════════ S4: MÓDULOS ══════════ -->
   <div class="slide content-slide" data-i="3">
-    <div class="sh"><div class="ey">03 — Módulos</div><div class="st">Funcionalidades del sistema</div></div>
+    <div class="sh"><div class="sh-left"><div class="ey">03 — Módulos</div><div class="st">Funcionalidades del sistema</div></div><div class="sh-num">03</div></div>
     <div class="sb">
       <div class="mg">
         <div class="mod"><div class="mico" style="background:#EEF5FF"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0176D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Contactos</h3><p>Base de datos centralizada con historial completo de cada cliente.</p><div class="mbadge">CORE</div></div>
@@ -268,7 +395,7 @@ html,body{height:100%;font-family:var(--f);background:#0a0f1e;overflow:hidden}
 
   <!-- ══════════ S5: TIPOS ══════════ -->
   <div class="slide content-slide" data-i="4">
-    <div class="sh"><div class="ey">03 — Tipos</div><div class="st">CRM según su enfoque</div></div>
+    <div class="sh"><div class="sh-left"><div class="ey">03 — Tipos</div><div class="st">CRM según su enfoque</div></div><div class="sh-num">04</div></div>
     <div class="sb">
       <div class="tr">
         <div class="tc"><div class="th t1"><div class="tnum">01</div><h3>Operacional</h3><p>Automatiza los procesos diarios de ventas, marketing y soporte al cliente.</p></div><div class="tbd">Foco en eficiencia y reducción de tareas manuales.<div class="ttls">Salesforce · HubSpot · Zoho</div></div></div>
@@ -284,7 +411,7 @@ html,body{height:100%;font-family:var(--f);background:#0a0f1e;overflow:hidden}
 
   <!-- ══════════ S6: CASO DE USO ══════════ -->
   <div class="slide content-slide" data-i="5">
-    <div class="sh"><div class="ey">04 — Caso de uso</div><div class="st">PyME de servicios — Antes y después</div></div>
+    <div class="sh"><div class="sh-left"><div class="ey">04 — Caso de uso</div><div class="st">PyME de servicios — Antes y después</div></div><div class="sh-num">05</div></div>
     <div class="sb">
       <div class="cl">
         <div class="cc">
@@ -319,10 +446,7 @@ html,body{height:100%;font-family:var(--f);background:#0a0f1e;overflow:hidden}
 
   <!-- ══════════ S7: DEMO CRM EMBEBIDA ══════════ -->
   <div class="slide s-demo" data-i="6">
-    <div class="sh" style="padding-bottom:8px">
-      <div class="ey">05 — Demo interactiva</div>
-      <div class="st">Mini CRM — Sistema funcional en vivo</div>
-    </div>
+    <div class="sh"><div class="sh-left"><div class="ey">05 — Demo interactiva</div><div class="st">Mini CRM — Sistema funcional en vivo</div></div><div class="sh-num">06</div></div>
     <div class="demo-slide-wrap">
       <iframe id="crm-iframe" class="crm-embed" src="about:blank" frameborder="0" scrolling="yes"></iframe>
     </div>
@@ -330,7 +454,7 @@ html,body{height:100%;font-family:var(--f);background:#0a0f1e;overflow:hidden}
 
   <!-- ══════════ S8: CIERRE ══════════ -->
   <div class="slide s8" data-i="7">
-    <div class="sh"><div class="ey">06 — Cierre</div><div class="st">Conexión con la materia</div></div>
+    <div class="sh"><div class="sh-left"><div class="ey">06 — Cierre</div><div class="st">Conexión con la materia</div></div><div class="sh-num" style="color:rgba(255,255,255,.04)">07</div></div>
     <div class="sb">
       <div class="cg">
         <div class="ccard">
@@ -370,30 +494,49 @@ html,body{height:100%;font-family:var(--f);background:#0a0f1e;overflow:hidden}
       <div class="divider"></div>
       <div class="team-label">Integrantes del grupo</div>
       <div class="members-grid">
-        <div class="member"><div class="avatar">I1</div><div><div class="mname">Integrante 1</div><div class="mrole">Legajo / DNI</div></div></div>
-        <div class="member"><div class="avatar">I2</div><div><div class="mname">Integrante 2</div><div class="mrole">Legajo / DNI</div></div></div>
-        <div class="member"><div class="avatar">I3</div><div><div class="mname">Integrante 3</div><div class="mrole">Legajo / DNI</div></div></div>
-        <div class="member"><div class="avatar">I4</div><div><div class="mname">Integrante 4</div><div class="mrole">Legajo / DNI</div></div></div>
+        <div class="member"><div class="avatar" style="background:rgba(27,150,255,.3);border-color:rgba(27,150,255,.5)">JG</div><div><div class="mname">Jeampierre González</div></div></div>
+        <div class="member"><div class="avatar" style="background:rgba(6,165,154,.25);border-color:rgba(6,165,154,.4)">I2</div><div><div class="mname">Integrante 2</div></div></div>
+        <div class="member"><div class="avatar" style="background:rgba(108,58,189,.25);border-color:rgba(108,58,189,.4)">I3</div><div><div class="mname">Integrante 3</div></div></div>
+        <div class="member"><div class="avatar" style="background:rgba(245,166,35,.25);border-color:rgba(245,166,35,.4)">I4</div><div><div class="mname">Integrante 4</div></div></div>
+        <div class="member"><div class="avatar" style="background:rgba(229,68,75,.25);border-color:rgba(229,68,75,.4)">I5</div><div><div class="mname">Integrante 5</div></div></div>
       </div>
-      <p class="s9-course">Desarrollo de Sistemas de Información Orientados a la Gestión y Apoyo a las Decisiones · 2025</p>
+      <p class="s9-course">Desarrollo de Sistemas de Información Orientados a la Gestión y Apoyo a las Decisiones</p>
     </div>
   </div>
 
 </div>
 
-<!-- ══════ NAV ══════ -->
-<div class="nav" id="nav">
-  <button onclick="go(-1)">&#8592;</button>
-  <div id="dots"></div>
-  <button onclick="go(1)">&#8594;</button>
-  <span class="snum" id="sn">1 / 9</span>
+<!-- ══ PROGRESS LINE ══ -->
+<div class="progress-line" id="prog" style="width:11.11%"></div>
+
+<!-- ══ SLIDE BADGE — top right ══ -->
+<div class="slide-badge" id="badge-bar">
+  <span class="sb-num" id="badge-num">01</span>
+  <span class="sb-sep"></span>
+  <span class="sb-title" id="badge-title">Portada</span>
+  <span class="sb-sep"></span>
+  <span class="sb-total">/ 09</span>
 </div>
-<div class="nav-hint">← → para navegar · F11 pantalla completa</div>
+
+<!-- ══ NAV — ultra thin ══ -->
+<div class="nav" id="nav">
+  <button class="nav-btn" onclick="go(-1)">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <div class="nav-dots" id="dots"></div>
+  <div class="nav-divider"></div>
+  <div class="nav-info"><span class="snum" id="sn">1 / 9</span></div>
+  <button class="nav-btn" onclick="go(1)">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+</div>
+<div class="nav-hint">← → navegar &nbsp;·&nbsp; F para pantalla completa</div>
 
 <script>
 /* ── NAVIGATION ── */
 const sl = document.querySelectorAll('.slide'), tot = sl.length;
 let cur = 0;
+const slideNames = ['Portada','¿Por qué CRM?','Conceptos','Módulos','Tipos','Caso de uso','Demo CRM','Cierre','Agradecimiento'];
 const dd = document.getElementById('dots');
 for (let i = 0; i < tot; i++) {
   const d = document.createElement('div');
@@ -401,18 +544,25 @@ for (let i = 0; i < tot; i++) {
   d.onclick = () => show(i);
   dd.appendChild(d);
 }
+function updateUI() {
+  document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('on', i === cur));
+  document.getElementById('sn').textContent = (cur + 1) + ' / ' + tot;
+  document.getElementById('prog').style.width = ((cur + 1) / tot * 100) + '%';
+  document.getElementById('badge-num').textContent = String(cur + 1).padStart(2, '0');
+  document.getElementById('badge-title').textContent = slideNames[cur] || '';
+}
 function show(n) {
   sl[cur].classList.remove('active');
   cur = (n + tot) % tot;
   sl[cur].classList.add('active');
-  document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('on', i === cur));
-  document.getElementById('sn').textContent = (cur + 1) + ' / ' + tot;
+  updateUI();
   if (cur === 6) injectCRM();
 }
 function go(d) { show(cur + d); }
 document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight' || e.key === 'ArrowDown') go(1);
   if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') go(-1);
+  if (e.key === 'f' || e.key === 'F') { const el = document.documentElement; if (!document.fullscreenElement) el.requestFullscreen?.(); else document.exitFullscreen?.(); }
 });
 
 /* ── CRM IFRAME INJECTION ── */
@@ -603,7 +753,7 @@ html,body{height:100%;font-family:var(--f);background:var(--bg);color:var(--navy
   <div class="sidebar">
     <div class="logo">
       <div class="logo-icon"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#fff" stroke-width="1.5"/><path d="M5 8h6M8 5v6" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-      <div><div class="logo-text">MiniCRM</div><div class="logo-sub">Demo · DSI 2025</div></div>
+      <div><div class="logo-text">MiniCRM</div><div class="logo-sub">Demo · DSI</div></div>
     </div>
     <div class="ns">Principal</div>
     <div class="ni active" onclick="goto('dashboard',this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</div>
