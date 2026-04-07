@@ -1,53 +1,72 @@
-<!-- S7: HERRAMIENTAS -->
+<!-- S13: METODOLOGÍA DE IMPLEMENTACIÓN -->
 <div class="slide content-slide" data-i="6">
-  <div class="sh"><div class="sh-left"><div class="ey">05 — Herramientas</div><div class="st">Plataformas populares</div></div><div class="sh-num">06</div></div>
+  <div class="sh"><div class="sh-left"><div class="ey">06 — Implementación</div><div class="st">Metodología paso a paso</div></div><div class="sh-num">06</div></div>
   <div class="sb">
-    <div class="tp">
-      <div class="tc3">
-        <div class="tc3-icon">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-            <rect x="8" y="8" width="32" height="32" rx="6" fill="#0176D3" fill-opacity=".1" stroke="#0176D3" stroke-width="2"/>
-            <path d="M18 16L30 32M30 16L18 32" stroke="#0176D3" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="24" cy="12" r="2" fill="#0176D3"/>
-            <circle cx="36" cy="24" r="2" fill="#0176D3"/>
-          </svg>
-        </div>
-        <h3>Salesforce</h3>
-        <p>Líder global con ecosistema robusto, escalabilidad empresarial y amplio marketplace.</p>
+    <!-- 5 pasos horizontales -->
+    <div style="display:flex;gap:clamp(6px,0.8vw,12px);margin-bottom:clamp(14px,1.8vw,22px)">
+      <!-- Paso 1 -->
+      <div style="flex:1;background:rgba(27,150,255,.06);border:1px solid rgba(27,150,255,.15);border-radius:12px;padding:clamp(10px,1.1vw,16px);position:relative">
+        <div style="position:absolute;top:-1px;left:0;right:0;height:3px;background:var(--sky);border-radius:12px 12px 0 0"></div>
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--sky);display:flex;align-items:center;justify-content:center;font-size:clamp(11px,1vw,14px);font-weight:800;color:#fff;margin-bottom:8px">1</div>
+        <div style="font-size:clamp(10px,1vw,13px);font-weight:700;color:#fff;margin-bottom:4px">Diagnóstico</div>
+        <p style="font-size:clamp(8px,0.8vw,10px);color:var(--muted);line-height:1.5;margin:0">Auditar procesos actuales, mapear touchpoints del cliente e identificar pain points.</p>
       </div>
-      <div class="tc3">
-        <div class="tc3-icon">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-            <circle cx="24" cy="24" r="18" fill="#06A59A" fill-opacity=".1" stroke="#06A59A" stroke-width="2"/>
-            <path d="M16 24L22 30L32 18" stroke="#06A59A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <h3>HubSpot</h3>
-        <p>Intuitivo y accesible, ideal para PyMEs. Integra ventas, marketing y soporte.</p>
+      <!-- Paso 2 -->
+      <div style="flex:1;background:rgba(1,118,211,.06);border:1px solid rgba(1,118,211,.15);border-radius:12px;padding:clamp(10px,1.1vw,16px);position:relative">
+        <div style="position:absolute;top:-1px;left:0;right:0;height:3px;background:var(--blue);border-radius:12px 12px 0 0"></div>
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:clamp(11px,1vw,14px);font-weight:800;color:#fff;margin-bottom:8px">2</div>
+        <div style="font-size:clamp(10px,1vw,13px);font-weight:700;color:#fff;margin-bottom:4px">Selección</div>
+        <p style="font-size:clamp(8px,0.8vw,10px);color:var(--muted);line-height:1.5;margin:0">Evaluar plataformas según necesidades, presupuesto, escalabilidad y ecosistema existente.</p>
       </div>
-      <div class="tc3">
-        <div class="tc3-icon">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-            <rect x="10" y="12" width="28" height="24" rx="3" fill="#F5A623" fill-opacity=".1" stroke="#F5A623" stroke-width="2"/>
-            <line x1="14" y1="16" x2="34" y2="16" stroke="#F5A623" stroke-width="1.5"/>
-            <line x1="14" y1="22" x2="34" y2="22" stroke="#F5A623" stroke-width="1.5"/>
-            <line x1="14" y1="28" x2="24" y2="28" stroke="#F5A623" stroke-width="1.5"/>
-          </svg>
-        </div>
-        <h3>Zoho CRM</h3>
-        <p>Económico y flexible, buena relación precio-valor con funcionalidades amplias.</p>
+      <!-- Paso 3 -->
+      <div style="flex:1;background:rgba(6,165,154,.06);border:1px solid rgba(6,165,154,.15);border-radius:12px;padding:clamp(10px,1.1vw,16px);position:relative">
+        <div style="position:absolute;top:-1px;left:0;right:0;height:3px;background:var(--teal);border-radius:12px 12px 0 0"></div>
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:clamp(11px,1vw,14px);font-weight:800;color:#fff;margin-bottom:8px">3</div>
+        <div style="font-size:clamp(10px,1vw,13px);font-weight:700;color:#fff;margin-bottom:4px">Migración</div>
+        <p style="font-size:clamp(8px,0.8vw,10px);color:var(--muted);line-height:1.5;margin:0">Limpiar datos, definir taxonomías, migrar información histórica y configurar integraciones.</p>
+      </div>
+      <!-- Paso 4 -->
+      <div style="flex:1;background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.15);border-radius:12px;padding:clamp(10px,1.1vw,16px);position:relative">
+        <div style="position:absolute;top:-1px;left:0;right:0;height:3px;background:#F5A623;border-radius:12px 12px 0 0"></div>
+        <div style="width:28px;height:28px;border-radius:50%;background:#F5A623;display:flex;align-items:center;justify-content:center;font-size:clamp(11px,1vw,14px);font-weight:800;color:#fff;margin-bottom:8px">4</div>
+        <div style="font-size:clamp(10px,1vw,13px);font-weight:700;color:#fff;margin-bottom:4px">Capacitación</div>
+        <p style="font-size:clamp(8px,0.8vw,10px);color:var(--muted);line-height:1.5;margin:0">Entrenar equipos por roles, crear documentación interna y designar champions.</p>
+      </div>
+      <!-- Paso 5 -->
+      <div style="flex:1;background:rgba(108,58,189,.06);border:1px solid rgba(108,58,189,.15);border-radius:12px;padding:clamp(10px,1.1vw,16px);position:relative">
+        <div style="position:absolute;top:-1px;left:0;right:0;height:3px;background:#6C3ABD;border-radius:12px 12px 0 0"></div>
+        <div style="width:28px;height:28px;border-radius:50%;background:#6C3ABD;display:flex;align-items:center;justify-content:center;font-size:clamp(11px,1vw,14px);font-weight:800;color:#fff;margin-bottom:8px">5</div>
+        <div style="font-size:clamp(10px,1vw,13px);font-weight:700;color:#fff;margin-bottom:4px">Medición</div>
+        <p style="font-size:clamp(8px,0.8vw,10px);color:var(--muted);line-height:1.5;margin:0">Monitorear KPIs, iterar configuraciones y escalar funcionalidades progresivamente.</p>
       </div>
     </div>
-    <table class="comp-table">
-      <thead>
-        <tr><th>Característica</th><th>Salesforce</th><th>HubSpot</th><th>Zoho</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Costo inicial</td><td>Alto</td><td>Medio</td><td>Bajo</td></tr>
-        <tr><td>Curva aprendizaje</td><td>Pronunciada</td><td>Suave</td><td>Media</td></tr>
-        <tr><td>Customización</td><td>Muy alta</td><td>Media</td><td>Alta</td></tr>
-        <tr><td>Soporte</td><td>Excelente</td><td>Muy bueno</td><td>Bueno</td></tr>
-      </tbody>
-    </table>
+
+    <!-- Dos columnas: Factores de éxito + Errores comunes -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.2vw,16px)">
+      <div style="background:rgba(6,165,154,.05);border:1px solid rgba(6,165,154,.12);border-radius:12px;padding:clamp(12px,1.3vw,18px)">
+        <div style="font-size:clamp(11px,1.1vw,14px);font-weight:700;color:#06A59A;margin-bottom:10px;display:flex;align-items:center;gap:8px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06A59A" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+          Factores de éxito
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="padding:6px 10px;background:rgba(6,165,154,.06);border-radius:6px;font-size:clamp(9px,0.85vw,11px);color:var(--muted);display:flex;align-items:center;gap:6px"><span style="color:#06A59A;font-weight:700;min-width:16px">01</span> Patrocinio ejecutivo desde el inicio</div>
+          <div style="padding:6px 10px;background:rgba(6,165,154,.06);border-radius:6px;font-size:clamp(9px,0.85vw,11px);color:var(--muted);display:flex;align-items:center;gap:6px"><span style="color:#06A59A;font-weight:700;min-width:16px">02</span> Involucrar a usuarios finales en diseño</div>
+          <div style="padding:6px 10px;background:rgba(6,165,154,.06);border-radius:6px;font-size:clamp(9px,0.85vw,11px);color:var(--muted);display:flex;align-items:center;gap:6px"><span style="color:#06A59A;font-weight:700;min-width:16px">03</span> Implementación gradual (piloto → rollout)</div>
+          <div style="padding:6px 10px;background:rgba(6,165,154,.06);border-radius:6px;font-size:clamp(9px,0.85vw,11px);color:var(--muted);display:flex;align-items:center;gap:6px"><span style="color:#06A59A;font-weight:700;min-width:16px">04</span> KPIs definidos antes de la implementación</div>
+        </div>
+      </div>
+      <div style="background:rgba(229,68,75,.05);border:1px solid rgba(229,68,75,.12);border-radius:12px;padding:clamp(12px,1.3vw,18px)">
+        <div style="font-size:clamp(11px,1.1vw,14px);font-weight:700;color:#E5444B;margin-bottom:10px;display:flex;align-items:center;gap:8px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E5444B" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          Errores comunes
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="padding:6px 10px;background:rgba(229,68,75,.06);border-radius:6px;font-size:clamp(9px,0.85vw,11px);color:var(--muted);display:flex;align-items:center;gap:6px"><span style="color:#E5444B;font-weight:700;min-width:16px">01</span> Comprar tecnología sin rediseñar procesos</div>
+          <div style="padding:6px 10px;background:rgba(229,68,75,.06);border-radius:6px;font-size:clamp(9px,0.85vw,11px);color:var(--muted);display:flex;align-items:center;gap:6px"><span style="color:#E5444B;font-weight:700;min-width:16px">02</span> Ignorar la calidad de datos pre-migración</div>
+          <div style="padding:6px 10px;background:rgba(229,68,75,.06);border-radius:6px;font-size:clamp(9px,0.85vw,11px);color:var(--muted);display:flex;align-items:center;gap:6px"><span style="color:#E5444B;font-weight:700;min-width:16px">03</span> Capacitación insuficiente del equipo</div>
+          <div style="padding:6px 10px;background:rgba(229,68,75,.06);border-radius:6px;font-size:clamp(9px,0.85vw,11px);color:var(--muted);display:flex;align-items:center;gap:6px"><span style="color:#E5444B;font-weight:700;min-width:16px">04</span> No medir ROI ni ajustar post-lanzamiento</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
