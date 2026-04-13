@@ -23,6 +23,60 @@
       </div>
     </div>
 
+    <!-- Gráfico comparativo de impacto por industria -->
+    <div style="display:flex;justify-content:center;padding:0 10px">
+      <svg width="100%" viewBox="0 0 800 130" fill="none" style="max-width:100%">
+        <!-- Grid lines -->
+        <line x1="120" y1="10" x2="120" y2="105" stroke="rgba(3,45,96,.06)" stroke-width="1"/>
+        <line x1="120" y1="105" x2="760" y2="105" stroke="rgba(3,45,96,.08)" stroke-width="1"/>
+        <line x1="280" y1="10" x2="280" y2="105" stroke="rgba(3,45,96,.04)" stroke-width="0.5" stroke-dasharray="4 4"/>
+        <line x1="440" y1="10" x2="440" y2="105" stroke="rgba(3,45,96,.04)" stroke-width="0.5" stroke-dasharray="4 4"/>
+        <line x1="600" y1="10" x2="600" y2="105" stroke="rgba(3,45,96,.04)" stroke-width="0.5" stroke-dasharray="4 4"/>
+        <line x1="760" y1="10" x2="760" y2="105" stroke="rgba(3,45,96,.04)" stroke-width="0.5" stroke-dasharray="4 4"/>
+        <!-- Scale labels -->
+        <text x="120" y="120" font-family="Poppins,sans-serif" font-size="9" fill="#9EAAB6" text-anchor="middle">0%</text>
+        <text x="280" y="120" font-family="Poppins,sans-serif" font-size="9" fill="#9EAAB6" text-anchor="middle">20%</text>
+        <text x="440" y="120" font-family="Poppins,sans-serif" font-size="9" fill="#9EAAB6" text-anchor="middle">40%</text>
+        <text x="600" y="120" font-family="Poppins,sans-serif" font-size="9" fill="#9EAAB6" text-anchor="middle">60%</text>
+
+        <!-- Retail bar: +35% ingresos -->
+        <text x="110" y="28" font-family="Poppins,sans-serif" font-size="12" font-weight="600" fill="#032D60" text-anchor="end">Retail</text>
+        <rect x="120" y="15" width="0" height="22" rx="6" fill="url(#barRetail)">
+          <animate attributeName="width" from="0" to="280" dur="1s" begin="0.3s" fill="freeze"/>
+        </rect>
+        <text x="410" y="30" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="#1B96FF" opacity="0">
+          +35% ingresos
+          <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.2s" fill="freeze"/>
+        </text>
+
+        <!-- Banca bar: -40% tiempos -->
+        <text x="110" y="60" font-family="Poppins,sans-serif" font-size="12" font-weight="600" fill="#032D60" text-anchor="end">Banca</text>
+        <rect x="120" y="47" width="0" height="22" rx="6" fill="url(#barBanca)">
+          <animate attributeName="width" from="0" to="320" dur="1s" begin="0.5s" fill="freeze"/>
+        </rect>
+        <text x="450" y="62" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="#06A59A" opacity="0">
+          -40% tiempos
+          <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.4s" fill="freeze"/>
+        </text>
+
+        <!-- SaaS bar: +20 NPS -->
+        <text x="110" y="92" font-family="Poppins,sans-serif" font-size="12" font-weight="600" fill="#032D60" text-anchor="end">SaaS</text>
+        <rect x="120" y="79" width="0" height="22" rx="6" fill="url(#barSaas)">
+          <animate attributeName="width" from="0" to="200" dur="1s" begin="0.7s" fill="freeze"/>
+        </rect>
+        <text x="330" y="94" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="#F5A623" opacity="0">
+          +20 pts NPS
+          <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.6s" fill="freeze"/>
+        </text>
+
+        <defs>
+          <linearGradient id="barRetail" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1B96FF"/><stop offset="100%" stop-color="#58C2FF"/></linearGradient>
+          <linearGradient id="barBanca" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#06A59A"/><stop offset="100%" stop-color="#59D8C9"/></linearGradient>
+          <linearGradient id="barSaas" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#F5A623"/><stop offset="100%" stop-color="#F8D47A"/></linearGradient>
+        </defs>
+      </svg>
+    </div>
+
     <div class="cases-timeline">
       <div class="cases-pill">
         <span>Retail</span>
@@ -41,31 +95,5 @@
       </div>
     </div>
 
-    <div class="cases-grid">
-      <div class="case-card">
-        <h4>Supermercados LATAM</h4>
-        <p>Next Best Action elevó el ticket promedio 18%.</p>
-        <ul>
-          <li>Dataset unificado (POS + web + app).</li>
-          <li>Alertas para reactivar clientes.</li>
-        </ul>
-      </div>
-      <div class="case-card">
-        <h4>Banca digital</h4>
-        <p>-40% en tiempos y +25% en cross-selling.</p>
-        <ul>
-          <li>Workflows low-code y SLA visibles.</li>
-          <li>Campañas personalizadas por segmento.</li>
-        </ul>
-      </div>
-      <div class="case-card">
-        <h4>Apps de suscripción</h4>
-        <p>+20 puntos en NPS y 3× ventas cruzadas.</p>
-        <ul>
-          <li>Segmentación por comportamiento.</li>
-          <li>Playbooks de reactivación multicanal.</li>
-        </ul>
-      </div>
-    </div>
   </div>
 </div>
