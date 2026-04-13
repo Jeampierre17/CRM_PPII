@@ -2,49 +2,136 @@
 <div class="slide content-slide" data-i="12">
   <div class="sh"><div class="sh-left"><div class="ey">12 — Futuro</div><div class="st">El CRM del mañana</div></div><div class="sh-num">12</div></div>
   <div class="sb future-stage">
+
     <div class="future-hero">
       <div class="future-panel">
         <h3>CRM aumentado por IA</h3>
         <p>El CRM pasa de registrar interacciones a anticiparlas: copilotos que sugieren la próxima acción, datos sintéticos para entrenar modelos y ética integrada desde el diseño.</p>
         <div class="future-pillset"><span>IA copiloto</span><span>Datos sintéticos</span><span>Experiencias autónomas</span></div>
-        <div class="future-timeline">
-          <div class="future-step"><span>1990s</span><strong>Contactos</strong></div>
-          <div class="future-step"><span>2000s</span><strong>Cloud</strong></div>
-          <div class="future-step"><span>2010s</span><strong>Social + Mobile</strong></div>
-          <div class="future-step"><span>2020s</span><strong>CRM + IA</strong></div>
-          <div class="future-step"><span>2030+</span><strong>Autónomo</strong></div>
-        </div>
       </div>
       <div class="future-orbit">
         <svg viewBox="0 0 320 160" fill="none">
-          <circle cx="160" cy="80" r="65" stroke="rgba(255,255,255,.2)" stroke-dasharray="8 10"/>
-          <circle cx="160" cy="80" r="40" stroke="rgba(255,255,255,.3)"/>
+          <!-- Outer ring rotating -->
+          <circle cx="160" cy="80" r="65" stroke="rgba(255,255,255,.15)" stroke-dasharray="8 10" fill="none">
+            <animateTransform attributeName="transform" type="rotate" from="0 160 80" to="360 160 80" dur="30s" repeatCount="indefinite"/>
+          </circle>
+          <!-- Inner ring rotating opposite -->
+          <circle cx="160" cy="80" r="40" stroke="rgba(255,255,255,.25)" stroke-width="1.5" fill="none">
+            <animateTransform attributeName="transform" type="rotate" from="360 160 80" to="0 160 80" dur="20s" repeatCount="indefinite"/>
+          </circle>
+          <!-- Center pulsing -->
+          <circle cx="160" cy="80" r="14" fill="#fff" opacity=".15">
+            <animate attributeName="r" values="14;18;14" dur="2.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values=".15;.25;.15" dur="2.5s" repeatCount="indefinite"/>
+          </circle>
           <circle cx="160" cy="80" r="10" fill="#fff"/>
+          <!-- IA label -->
+          <text x="160" y="84" font-family="Poppins,sans-serif" font-size="7" font-weight="700" fill="#0A2748" text-anchor="middle">IA</text>
+
+          <!-- Cliente - static with glow -->
           <g>
+            <circle cx="230" cy="80" r="26" fill="#0E2B50" opacity=".2">
+              <animate attributeName="r" values="26;29;26" dur="3s" repeatCount="indefinite"/>
+            </circle>
             <circle cx="230" cy="80" r="22" fill="#0E2B50"/>
-            <text x="230" y="85" fill="#fff" font-size="10" text-anchor="middle">Cliente</text>
+            <text x="230" y="85" fill="#fff" font-size="10" font-weight="600" text-anchor="middle">Cliente</text>
           </g>
+          <!-- Marketing - static with glow -->
           <g>
-            <circle cx="110" cy="25" r="16" fill="#1B96FF" fill-opacity=".35"/>
-            <text x="110" y="28" fill="#fff" font-size="9" text-anchor="middle">Marketing</text>
+            <circle cx="110" cy="25" r="20" fill="#1B96FF" opacity=".12">
+              <animate attributeName="r" values="20;23;20" dur="3.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="110" cy="25" r="16" fill="#1B96FF" fill-opacity=".45"/>
+            <text x="110" y="29" fill="#fff" font-size="9" font-weight="600" text-anchor="middle">Marketing</text>
           </g>
+          <!-- Servicio - static with glow -->
           <g>
-            <circle cx="70" cy="110" r="16" fill="#06A59A" fill-opacity=".35"/>
-            <text x="70" y="114" fill="#fff" font-size="9" text-anchor="middle">Servicio</text>
+            <circle cx="70" cy="110" r="20" fill="#06A59A" opacity=".12">
+              <animate attributeName="r" values="20;23;20" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="70" cy="110" r="16" fill="#06A59A" fill-opacity=".45"/>
+            <text x="70" y="114" fill="#fff" font-size="9" font-weight="600" text-anchor="middle">Servicio</text>
           </g>
+          <!-- Ventas - static with glow -->
           <g>
-            <circle cx="240" cy="125" r="16" fill="#F5A623" fill-opacity=".35"/>
-            <text x="240" y="129" fill="#fff" font-size="9" text-anchor="middle">Ventas</text>
+            <circle cx="240" cy="125" r="20" fill="#F5A623" opacity=".12">
+              <animate attributeName="r" values="20;23;20" dur="3.2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="240" cy="125" r="16" fill="#F5A623" fill-opacity=".45"/>
+            <text x="240" y="129" fill="#fff" font-size="9" font-weight="600" text-anchor="middle">Ventas</text>
           </g>
+
+          <!-- Connecting pulses -->
+          <circle cx="160" cy="80" r="30" fill="none" stroke="rgba(27,150,255,.1)" stroke-width="1">
+            <animate attributeName="r" values="30;65;30" dur="4s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values=".3;0;.3" dur="4s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="160" cy="80" r="40" fill="none" stroke="rgba(6,165,154,.08)" stroke-width="1">
+            <animate attributeName="r" values="40;75;40" dur="5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values=".2;0;.2" dur="5s" repeatCount="indefinite"/>
+          </circle>
         </svg>
-        <div class="future-grid">
-          <div class="future-card"><strong>IA predictiva</strong><span style="font-size:11px">Lead Scoring</span></div>
-          <div class="future-card"><strong>Proactividad</strong><span style="font-size:11px">Alertas</span></div>
-          <div class="future-card"><strong>Big Data</strong><span style="font-size:11px">IoT · Redes</span></div>
-          <div class="future-card"><strong>Ética</strong><span style="font-size:11px">Ley 25.326</span></div>
-        </div>
       </div>
     </div>
+
+    <!-- Timeline evolución CRM -->
+    <div style="display:flex;justify-content:center;padding:0 10px">
+      <svg width="100%" viewBox="0 0 900 100" fill="none" style="max-width:100%">
+        <defs>
+          <linearGradient id="tlGrad" x1="0" y1="0" x2="900" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#E5444B"/>
+            <stop offset="25%" stop-color="#F5A623"/>
+            <stop offset="50%" stop-color="#06A59A"/>
+            <stop offset="75%" stop-color="#1B96FF"/>
+            <stop offset="100%" stop-color="#6C3ABD"/>
+          </linearGradient>
+        </defs>
+        <!-- Line -->
+        <line x1="60" y1="40" x2="840" y2="40" stroke="rgba(3,45,96,.08)" stroke-width="3" stroke-linecap="round"/>
+        <line x1="60" y1="40" x2="840" y2="40" stroke="url(#tlGrad)" stroke-width="2" stroke-linecap="round" stroke-dasharray="8 6"/>
+
+        <!-- 1990s -->
+        <circle cx="60" cy="40" r="14" fill="#E5444B" opacity=".12"/>
+        <circle cx="60" cy="40" r="9" fill="#E5444B"/>
+        <text x="60" y="70" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#E5444B" text-anchor="middle">1990s</text>
+        <text x="60" y="84" font-family="Poppins,sans-serif" font-size="10" fill="#5a6374" text-anchor="middle">Contactos</text>
+
+        <!-- 2000s -->
+        <circle cx="255" cy="40" r="14" fill="#F5A623" opacity=".12"/>
+        <circle cx="255" cy="40" r="9" fill="#F5A623"/>
+        <text x="255" y="70" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#F5A623" text-anchor="middle">2000s</text>
+        <text x="255" y="84" font-family="Poppins,sans-serif" font-size="10" fill="#5a6374" text-anchor="middle">Cloud + SaaS</text>
+
+        <!-- 2010s -->
+        <circle cx="450" cy="40" r="14" fill="#06A59A" opacity=".12"/>
+        <circle cx="450" cy="40" r="9" fill="#06A59A"/>
+        <text x="450" y="70" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#06A59A" text-anchor="middle">2010s</text>
+        <text x="450" y="84" font-family="Poppins,sans-serif" font-size="10" fill="#5a6374" text-anchor="middle">Social + Mobile</text>
+
+        <!-- 2020s -->
+        <circle cx="645" cy="40" r="14" fill="#1B96FF" opacity=".12"/>
+        <circle cx="645" cy="40" r="9" fill="#1B96FF"/>
+        <text x="645" y="70" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#1B96FF" text-anchor="middle">2020s</text>
+        <text x="645" y="84" font-family="Poppins,sans-serif" font-size="10" fill="#5a6374" text-anchor="middle">CRM + IA</text>
+
+        <!-- 2030+ (pulsing) -->
+        <circle cx="840" cy="40" r="18" fill="#6C3ABD" opacity=".1">
+          <animate attributeName="r" values="18;22;18" dur="2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values=".1;.2;.1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="840" cy="40" r="11" fill="#6C3ABD"/>
+        <text x="840" y="70" font-family="Poppins,sans-serif" font-size="13" font-weight="800" fill="#6C3ABD" text-anchor="middle">2030+</text>
+        <text x="840" y="84" font-family="Poppins,sans-serif" font-size="10" font-weight="600" fill="#6C3ABD" text-anchor="middle">Autónomo</text>
+
+        <!-- Animated dot -->
+        <circle r="4" fill="#fff" opacity=".8">
+          <animate attributeName="cx" values="60;255;450;645;840;840" dur="4s" repeatCount="indefinite"/>
+          <animate attributeName="cy" values="40;40;40;40;40;40" dur="4s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+    </div>
+
+    <!-- 4 tendencias -->
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,20px)">
       <div class="future-step" style="min-width:0">
         <span>IA copiloto</span><strong>Resúmenes inteligentes para agentes.</strong>
