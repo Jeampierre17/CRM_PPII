@@ -5,7 +5,13 @@
       "Bash(mv slide-11.html slide-12.html)",
       "Bash(mv slide-10.html slide-11.html)",
       "Bash(mv slide-09.html slide-10.html)",
-      "Bash(mv slide-08.html slide-09.html)"
+      "Bash(mv slide-08.html slide-09.html)",
+      "Bash(grep -l \"Supermercados\" c:/Users/jeamp/CRM_PPII/public/slides/slide-*.html)",
+      "Bash(grep -l \"Desaf\" c:/Users/jeamp/CRM_PPII/public/slides/slide-*.html)",
+      "Bash(grep -l \"Conclusi\" c:/Users/jeamp/CRM_PPII/public/slides/slide-*.html)",
+      "Bash(grep -l \"Futuro\" c:/Users/jeamp/CRM_PPII/public/slides/slide-*.html)",
+      "Bash(grep -l \"Impacto\" c:/Users/jeamp/CRM_PPII/public/slides/slide-*.html)",
+      "Bash(grep -l \"Metodología\\\\|metodolog\" c:/Users/jeamp/CRM_PPII/public/slides/slide-*.html)"
     ]
   }
 }
