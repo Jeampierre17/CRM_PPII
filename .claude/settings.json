@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv slide-12.html slide-temp-desafios.html)",
+      "Bash(mv slide-11.html slide-12.html)",
+      "Bash(mv slide-10.html slide-11.html)",
+      "Bash(mv slide-09.html slide-10.html)",
+      "Bash(mv slide-08.html slide-09.html)"
+    ]
+  }
+}
